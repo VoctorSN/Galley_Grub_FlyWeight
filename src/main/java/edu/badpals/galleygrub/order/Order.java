@@ -12,13 +12,13 @@ public class Order implements Comanda{
     public Order(){}
 
     @Override
-    public void addItem(String item, Double price) {
-
+    public void addItem(String name, Double price) {
+        this.items.add(ItemFactory.getItem(name,price));
     }
 
     @Override
-    public void addItem(String item, Double price, String extra) {
-
+    public void addItem(String name, Double price, String extra) {
+        this.items.add(ItemFactory.getItem(name,price,extra));
     }
 
     @Override
@@ -38,11 +38,11 @@ public class Order implements Comanda{
 
     @Override
     public void updateTotal(Double total) {
-
+        this.total += total;
     }
 
     @Override
     public void display() {
-
+        itemList().forEach(System.out::println);
     }
 }
