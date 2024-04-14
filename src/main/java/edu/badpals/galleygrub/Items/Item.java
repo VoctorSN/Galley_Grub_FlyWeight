@@ -33,13 +33,14 @@ public class Item implements Product{
     }
 
     public Item(String name, Double price, String extra){
-        this.name = name;
+        this.name = name+ " w/ "+ extra;
         this.price = price;
         this.extra = extra;
     }
 
     @Override
     public String toString() {
-        return name() + "...." + price() + '$';
+
+        return name() + "...." + String.format("%.2f", price()) + '$';
     }
 }

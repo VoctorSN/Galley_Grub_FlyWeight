@@ -1,6 +1,7 @@
 package edu.badpals.galleygrub.order;
 
 import edu.badpals.galleygrub.Items.Item;
+import edu.badpals.galleygrub.Items.ItemFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,9 @@ public class Order implements Comanda{
 
     @Override
     public void display() {
-        itemList().forEach(System.out::println);
+        System.out.println("\n" + "\t" + " --- " + "ORDER" + " --- ");
+        itemList().forEach(item -> {
+            System.out.println("\t" + item);
+        });
     }
 }
