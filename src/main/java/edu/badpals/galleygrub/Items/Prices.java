@@ -18,8 +18,8 @@ public class Prices {
         prices.put("large", 0.50d);
     }
 
-    public static Double getPrice(String product){
-        return prices.get(product);
+    public static Double getPrice(String extra){
+        return prices.get(extra);
     }
 
     public static boolean contains(String item){

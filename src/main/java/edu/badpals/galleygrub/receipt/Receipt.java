@@ -1,11 +1,11 @@
 package edu.badpals.galleygrub.receipt;
 
+import edu.badpals.galleygrub.Items.Item;
 import edu.badpals.galleygrub.extras.Extra;
 import edu.badpals.galleygrub.order.Comanda;
 
 public class Receipt implements Ticket{
-
-    private Double total = 0d;
+    private Extra chain;
     private Comanda order = null;
 
     public Receipt(Comanda order) {
@@ -19,29 +19,33 @@ public class Receipt implements Ticket{
 
     @Override
     public void setChain(Extra chain) {
-
+        this.chain = chain;
     }
 
     @Override
     public Extra getChain() {
-        return null;
+        return this.chain;
     }
 
     @Override
     public Double total() {
-        getOrder().itemList().forEach(item -> {
-            total += item.price();
-        });
-        return total;
+        if (this.order.getTotal().equals(0d)){
+            if (this.getChain() == null){
+                return getOrder().itemList().stream().map(Item::price).reduce(Double::sum).orElse(0d);
+            } else {
+                this.sumExtrasChange();
+            }
+        }
+        return this.order.getTotal();
     }
 
     @Override
     public void sumExtrasChange() {
-
+       chain.sumExtras(this.order);
     }
 
     @Override
     public void print() {
-        System.out.println("\t" +"TOTAL" + " --------> "+ String.format("%.2f", total) + '$');
+        System.out.println("\t" +"TOTAL" + " --------> "+ String.format("%.2f", this.order.getTotal()) + '$');
     }
 }

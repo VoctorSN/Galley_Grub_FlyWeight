@@ -12,23 +12,13 @@ public class ItemFactory {
     ItemFactory() {}
 
     public static Item getItem(String name, Double price) {
-        if (!itemMap.containsKey(name)){
-            Item item = new Item(name,price);
-            itemMap.put(name,item);
-            return item;
-        } else {
-            return itemMap.get(name);
-        }
+        itemMap.putIfAbsent(name,new Item(name,price));
+        return itemMap.get(name);
     }
 
     public static Item getItem(String name, Double price, String extra) {
-        if (!itemMap.containsKey(name+ " w/ "+ extra)){
-            Item item = new Item(name,price,extra);
-            itemMap.put(name,item);
-            return item;
-        } else {
-            return itemMap.get(name);
-        }
+        itemMap.putIfAbsent(name + " w/ " + extra,new Item(name,price,extra));
+        return itemMap.get(name + " w/ " + extra);
     }
 
     public static int size(){

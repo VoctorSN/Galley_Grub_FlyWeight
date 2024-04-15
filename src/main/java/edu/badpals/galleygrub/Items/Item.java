@@ -1,12 +1,13 @@
 package edu.badpals.galleygrub.Items;
 
-public class Item implements Product{
+public class Item implements Product {
 
     String name = "";
 
     Double price = 0d;
 
     String extra = "";
+
     @Override
     public String name() {
         return this.name;
@@ -27,20 +28,23 @@ public class Item implements Product{
         return extra().isEmpty();
     }
 
-    public Item(String name, Double price){
+    public Item(String name, Double price) {
         this.name = name;
         this.price = price;
     }
 
-    public Item(String name, Double price, String extra){
-        this.name = name+ " w/ "+ extra;
+    public Item(String name, Double price, String extra) {
+        this.name = name + " w/ " + extra;
         this.price = price;
         this.extra = extra;
     }
 
     @Override
     public String toString() {
-
-        return name() + "...." + String.format("%.2f", price()) + '$';
+        if (this.extra.isEmpty()) {
+            return name() + "...." + String.format("%.2f", price()) + '$';
+        } else {
+            return name() + "...." + String.format("%.2f", price()) + "$ + " + String.format("%.2f", Prices.getPrice(extra)) + '$';
+        }
     }
 }
