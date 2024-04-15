@@ -1,10 +1,7 @@
 package edu.badpals.galleygrub.extras;
 
 import edu.badpals.galleygrub.Items.Item;
-import edu.badpals.galleygrub.Items.Prices;
 import edu.badpals.galleygrub.order.Comanda;
-
-import java.util.Optional;
 
 public class Regular extends Extra{
 
