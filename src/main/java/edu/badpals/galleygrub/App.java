@@ -1,12 +1,12 @@
 package edu.badpals.galleygrub;
 
+import edu.badpals.galleygrub.Items.Prices;
 import edu.badpals.galleygrub.extras.CheeseExtra;
 import edu.badpals.galleygrub.extras.Extra;
 import edu.badpals.galleygrub.extras.Regular;
 import edu.badpals.galleygrub.extras.SauceExtra;
 import edu.badpals.galleygrub.extras.SizeLargeExtra;
 import edu.badpals.galleygrub.Items.Item;
-import edu.badpals.galleygrub.Items.Prices1;
 import edu.badpals.galleygrub.Items.Product;
 import edu.badpals.galleygrub.order.Comanda;
 import edu.badpals.galleygrub.order.Order;
@@ -50,11 +50,9 @@ public class App
          * del menu proporcionada.
          */
 
-        Prices1.init_prices();
-
         // formatea la salida de cada entrada del diccionario como prefieras
         System.out.print("\n\t --- PRICES ---  \n");
-        Prices1.display();
+        Prices.display();
 
         /**
          * Crea los items del menu 

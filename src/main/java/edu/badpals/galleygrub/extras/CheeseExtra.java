@@ -1,6 +1,6 @@
 package edu.badpals.galleygrub.extras;
 
-import edu.badpals.galleygrub.Items.Prices1;
+import edu.badpals.galleygrub.Items.Prices;
 import edu.badpals.galleygrub.order.Comanda;
 
 public class CheeseExtra extends Extra{
@@ -10,7 +10,7 @@ public class CheeseExtra extends Extra{
         this.CHEESE_PRICE = order.itemList()
                 .stream()
                 .filter(item -> item.extra().equals(CHEESE))
-                .map(item -> Prices1.getPrice(item.extra()))
+                .map(item -> Prices.getPrice(item.extra()))
                 .reduce(Double::sum)
                 .orElse(0d);
         order.updateTotal(this.CHEESE_PRICE);

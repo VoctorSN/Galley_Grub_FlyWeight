@@ -44,7 +44,7 @@ public class Item implements Product {
         if (this.extra.isEmpty()) {
             return name() + "...." + String.format("%.2f", price()) + '$';
         } else {
-            return name() + "...." + String.format("%.2f", price()) + "$ + " + String.format("%.2f", Prices1.getPrice(extra)) + '$';
+            return name() + "...." + String.format("%.2f", price()) + "$ + " + String.format("%.2f", Prices.getPrice(extra)) + '$';
         }
     }
 }
